@@ -8,7 +8,7 @@ This k-mer counter was designed to tackle the increasing amount of data that acc
 
 It can count k-mers for ks as large as 31 and has a fault-tolerant design for errors that occur while manually editing sequences. Warpcore hashmap is required.
 
-Compilation was done with:  
+Compilation was done using:  
 `nvcc main.cpp src/globals.cu src/kmer_utils.cu src/kernels_fa.cu src/kernels_fq.cu -o projekt_app
 `
 
