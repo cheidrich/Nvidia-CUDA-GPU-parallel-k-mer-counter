@@ -1,7 +1,16 @@
-This k-mer counter was designed to tackle the increasing amount of data that accrues with the advent of Next Generation Sequencing and has made conventional k-mer counters too slow and memory intensive. It outperforms the three most commonly used k-mer counters KMC, Jellyfish, and Gerbil and achieves speedups of 3 to 4 compared to KMC, 5 to 10 compared to Jellyfish, and 2 to 4 compared to Gerbil. It can count k-mers for ks as large as 31 and has a fault-tolerant design for errors that occur while manually editing sequences. Warpcore hashmap is required.
+# CUDA-parallel k-mer counter
 
-Compilation was done with:
-nvcc --extended-lambda kernel.cu
+This k-mer counter was designed to tackle the increasing amount of data that accrues with the advent of Next Generation Sequencing and has made conventional k-mer counters too slow and memory intensive. It outperforms the three most commonly used k-mer counters KMC, Jellyfish, and Gerbil and achieves speedups of 3 to 4 compared to KMC, 5 to 10 compared to Jellyfish, and 2 to 4 compared to Gerbil. 
+
+
+![K-mer Counting Stats](stats/kmer_counting_stats.PNG)
+
+
+It can count k-mers for ks as large as 31 and has a fault-tolerant design for errors that occur while manually editing sequences. Warpcore hashmap is required.
+
+Compilation was done using:  
+`nvcc main.cpp src/globals.cu src/kmer_utils.cu src/kernels_fa.cu src/kernels_fq.cu -o projekt_app
+`
 
 Remarks:
 - It is not recommended to print all k-mers except for low ks and or very large thresholds.
